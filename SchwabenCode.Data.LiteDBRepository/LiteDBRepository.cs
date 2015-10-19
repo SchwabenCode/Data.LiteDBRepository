@@ -36,11 +36,29 @@ namespace SchwabenCode.Data.LiteDBRepository
         /// <returns>Returns passed entity.</returns>
         public TEntity Add( TEntity entity )
         {
-            Contract.Assume( _collection != null );
-
             _collection.Insert( entity );
 
             return entity;
+        }
+
+        /// <summary>
+        /// Adds given entity to the current collection.
+        /// </summary>
+        /// <remarks>Id must be new.</remarks>
+        /// <returns>Returns items insered.</returns>
+        public Int64 Add( IEnumerable<TEntity> entities )
+        {
+           return  _collection.Insert( entities );
+        }
+
+        /// <summary>
+        /// Adds given entity to the current collection.
+        /// </summary>
+        /// <remarks>Id must be new.</remarks>
+        /// <returns>Returns items insered.</returns>
+        public Int64 AddBulk( IEnumerable<TEntity> entity, int chunkSize = 32768 )
+        {
+            return _collection.InsertBulk( entity, chunkSize );
         }
 
         /// <summary>
