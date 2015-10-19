@@ -13,7 +13,12 @@
     <summary>LiteDBRepository by SchwabenCode</summary>
     <releaseNotes>First release</releaseNotes>
     <copyright>Copyright Benjamin Abt (SchwabenCode.com) 2015</copyright>
-    <tags>Entity Repository Pattern Database MongoDB EntityFramework SchwabenCode BenjaminAbt</tags>
+    <tags>Entity Repository Pattern Database LiteDB NoSQL SchwabenCode BenjaminAbt</tags>
+    <dependencies>
+      <dependency id="LiteDB" />
+      <dependency id="AsyncAll" />
+      <dependency id="SchwabenCode.Data.Repository" />
+    </dependencies>
   </metadata>
   <files>
       <file src="bin\Release\SchwabenCode.Data.LiteDBRepository.dll" target="lib\net40\" />
