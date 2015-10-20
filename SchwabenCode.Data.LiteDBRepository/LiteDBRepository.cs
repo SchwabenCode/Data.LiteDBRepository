@@ -17,6 +17,7 @@ namespace SchwabenCode.Data.LiteDBRepository
         where TIdentifier : struct
     {
         private LiteCollection<TEntity> _collection;
+        private string keyName = "_id";
 
         /// <summary>
         /// Creates a new instance of <see cref="LiteDBRepository"/> attached to the given context
@@ -27,6 +28,15 @@ namespace SchwabenCode.Data.LiteDBRepository
             Contract.Requires( !String.IsNullOrEmpty( collectionName ) );
 
             _collection = dbContext.Database.GetCollection<TEntity>( collectionName );
+        }
+
+
+        /// <summary>
+        /// Checks existance of given id
+        /// </summary>
+        public bool Exists( TIdentifier id )
+        {
+            return _collection.Exists( Query.EQ( keyName, new BsonValue( id ) ) );
         }
 
         /// <summary>
@@ -48,7 +58,7 @@ namespace SchwabenCode.Data.LiteDBRepository
         /// <returns>Returns items insered.</returns>
         public Int64 Add( IEnumerable<TEntity> entities )
         {
-           return  _collection.Insert( entities );
+            return _collection.Insert( entities );
         }
 
         /// <summary>

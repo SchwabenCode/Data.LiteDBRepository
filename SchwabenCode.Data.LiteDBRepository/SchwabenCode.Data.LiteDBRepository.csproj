@@ -43,8 +43,8 @@
       <HintPath>..\packages\SchwabenCode.Data.Entity.0.0.1-alpha\lib\net40\SchwabenCode.Data.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SchwabenCode.Data.Repository, Version=0.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SchwabenCode.Data.Repository.0.0.4-alpha\lib\net40\SchwabenCode.Data.Repository.dll</HintPath>
+    <Reference Include="SchwabenCode.Data.Repository, Version=0.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SchwabenCode.Data.Repository.0.0.5-alpha\lib\net40\SchwabenCode.Data.Repository.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -58,8 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILiteDBContext.cs" />
+    <Compile Include="IStorageFile.cs" />
+    <Compile Include="LiteDBExtensions.cs" />
     <Compile Include="LiteDBRepository.Async.cs" />
     <Compile Include="LiteDBRepository.cs" />
+    <Compile Include="LiteDBStorageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

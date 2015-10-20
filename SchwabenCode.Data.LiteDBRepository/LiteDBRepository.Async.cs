@@ -6,6 +6,14 @@ namespace SchwabenCode.Data.LiteDBRepository
     public partial class LiteDBRepository<TEntity, TIdentifier>
     {
         /// <summary>
+        /// Checks existance of given id
+        /// </summary>
+        public Task<bool> ExistsAsync( TIdentifier id )
+        {
+            return AsyncAll.AsyncAll.GetAsyncResult( () => Exists( id ) );
+        }
+
+        /// <summary>
         /// Adds given entity to the current collection.
         /// </summary>
         /// <remarks>Id must be new.</remarks>
